@@ -1,0 +1,11 @@
+Select distinct P.maker from Product P
+left join Product P1 ON P.maker=P1.maker
+and P1.type in ( 'PC','Laptop')
+where P1.maker is null
+union
+Select P.maker from Product P
+left join Product P1 ON P.maker=P1.maker
+and P1.type in ( 'Printer','Laptop')
+where P1.maker is null
+group by P.maker
+having count(0)>2
