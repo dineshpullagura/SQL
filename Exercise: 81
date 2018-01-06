@@ -1,0 +1,9 @@
+select O.* from Outcome O
+inner join 
+(select month,year,rank() over (order by amount desc) rank
+from
+(select sum(out) amount,month(date) month,year(date) year from outcome 
+group by month(date),year(date)) A)B
+on month(O.date)=month
+and year(O.date)= year
+where rank=1
