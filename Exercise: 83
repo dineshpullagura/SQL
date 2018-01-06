@@ -1,0 +1,9 @@
+Select name from Classes C
+inner join Ships S on S.class=C.class
+where (case WHEN numGuns = 8 THEN 1 ELSE 0 END +
+case WHEN  bore =15 THEN 1 ELSE 0 END +
+case WHEN displacement =32000 THEN 1 ELSE 0 END +
+case WHEN type ='bb' THEN 1 ELSE 0 END +
+case WHEN launched =1915 THEN 1 ELSE 0 END +
+case WHEN C.class='Kongo' THEN 1 ELSE 0 END +
+case WHEN country ='USA' THEN 1 ELSE 0 END) > =4
