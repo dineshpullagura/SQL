@@ -1,0 +1,15 @@
+select a.point,a.date,sum(out),sum(inc) from 
+(select point, date,sum(inc) inc from income
+group by point,date) a left join (select point ,date,sum(out) out from outcome
+group by point,date) b
+on a.point=b.point
+and a.date=b.date
+group by a.point,a.date
+union
+select a.point,a.date,sum(out),sum(inc) from
+(select point, date,sum(out) out from outcome
+group by point,date) a left join (select point ,date,sum(inc) inc from income
+group by point,date) b
+on a.point=b.point
+and a.date=b.date
+group by a.point,a.date
