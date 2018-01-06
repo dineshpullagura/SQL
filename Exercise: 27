@@ -1,0 +1,7 @@
+select P1.maker,AVG(hd)
+from Product P1 inner join Product P2
+on P1.maker=P2.maker
+and P1.type='PC'
+and P2.type='Printer'
+inner join PC on PC.model=P1.model
+group by P1.maker
