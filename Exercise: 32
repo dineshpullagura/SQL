@@ -1,0 +1,9 @@
+select country, CAST(avg(power(bore, 3)/2) AS DECIMAL(10,2)) weight 
+from
+    (select country, bore, name from classes c, ships s
+     where s.class=c.class
+     union
+     select country, bore, ship from classes c, outcomes o
+     where o.ship=c.class 
+     and o.ship not in(select distinct name from ships))x
+group by country
