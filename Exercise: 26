@@ -1,0 +1,8 @@
+select AVG(Price) AVG_Price from 
+(select Price from Product P 
+inner join PC ON P.model=PC.model
+and P.maker='A'
+union all
+select Price from Product P 
+inner join Laptop L ON P.model=L.model
+and P.maker='A' ) T
