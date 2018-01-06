@@ -1,0 +1,4 @@
+select count(0) from
+(Select count(0),maker from product
+group by maker
+having count(0)=1)
