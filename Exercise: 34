@@ -1,0 +1,5 @@
+Select name from classes a,ships b
+where a.class=b.class
+and displacement>35000
+and type='bb'
+and launched>1921
