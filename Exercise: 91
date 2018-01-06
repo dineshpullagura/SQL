@@ -1,0 +1,3 @@
+SELECT cast(SUM(coalesce(b.B_VOL,0))*1.0/COUNT(DISTINCT a.Q_ID) as decimal(5,2))
+FROM utQ a left join utB b
+on a.Q_ID = b.B_Q_ID
