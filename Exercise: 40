@@ -1,0 +1,3 @@
+select a.class,name,country from classes a,ships b
+where a.class=b.class
+and a.numguns>=10
