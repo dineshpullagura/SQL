@@ -1,0 +1,10 @@
+select distinct ship from 
+(select OU.ship,B.date
+from Outcomes OU
+inner join Battles B ON OU.battle=B.name
+where OU.result='damaged') A
+WHERE EXISTS (select SHIP from 
+Outcomes O
+inner join Battles B ON O.battle=B.name
+where O.Ship=A.ship
+and B.Date > A.Date)
