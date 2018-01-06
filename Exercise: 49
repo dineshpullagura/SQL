@@ -1,0 +1,14 @@
+select S.name
+from Ships S
+inner join Classes C ON S.class=C.class
+where C.bore=16
+union 
+select ship from
+ ( SELECT    o.ship ,
+                        COALESCE(s.class, o.ship) class
+              FROM      outcomes o
+                         LEFT JOIN ships s ON s.name = o.ship
+       
+            ) s
+            inner JOIN classes c ON c.class = s.class
+and c.bore=16
