@@ -1,0 +1,4 @@
+select distinct maker,price from product a,printer b
+where a.model=b.model 
+and price= (select min(price) from printer where color='y')
+and color='y'
