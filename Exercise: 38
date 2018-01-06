@@ -1,0 +1,5 @@
+Select country from classes
+where type ='bb'
+intersect
+Select country from classes
+where type ='bc'
