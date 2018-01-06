@@ -1,0 +1,6 @@
+select ship,c.displacement,c.numguns from
+(select o.ship,coalesce(s.class,o.ship) class from outcomes o
+inner join Battles b on o.battle=b.name
+left join ships s on s.name=o.ship
+where b.name='Guadalcanal') s
+left join classes c on c.class=s.class
