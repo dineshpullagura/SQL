@@ -1,0 +1,10 @@
+select * from 
+(select B.code,
+(select AVG(Price) from
+(select code,price,row_number() over(order by code asc) rn
+from PC) A 
+where A.rn between B.rn and B.rn+5
+having count(0)=6 ) price
+from (select code,price,row_number() over(order by code asc) rn
+from PC) B )C
+where price is not null
