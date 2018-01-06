@@ -1,0 +1,2 @@
+Select model,type from product
+where model  NOT LIKE '%[^A-Za-z]%' OR model NOT LIKE '%[^0-9]%'
