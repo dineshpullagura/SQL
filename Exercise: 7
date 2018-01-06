@@ -1,0 +1,11 @@
+select distinct a.model,b.price from product a,PC b
+where a.model=b.model
+and a.maker='B'
+union
+select distinct a.model,b.price from product a,Laptop b
+where a.model=b.model
+and a.maker='B'
+union
+select distinct a.model,b.price from product a,Printer b
+where a.model=b.model
+and a.maker='B'
