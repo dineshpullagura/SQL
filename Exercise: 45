@@ -1,0 +1,5 @@
+select name from 
+(select name,len(name) -len( replace( name, ' ', '' ) ) length  from ships
+union
+select ship,len(ship) -len( replace( ship, ' ', '' ) ) from outcomes) a
+where length>=2
