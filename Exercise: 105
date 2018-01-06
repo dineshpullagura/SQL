@@ -1,0 +1,5 @@
+Select maker,model,row_number() over(order by maker,model) A 
+,dense_rank() over(order by maker) B
+,rank() over(order by maker) C
+,(select count(0) from product p1 where P1.maker<=p.maker) D
+from product p
