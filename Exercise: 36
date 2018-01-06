@@ -1,0 +1,4 @@
+select name from ships where name=class
+union
+select ship from outcomes a,classes b
+where a.ship=b.class
