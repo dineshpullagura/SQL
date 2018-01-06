@@ -1,0 +1,9 @@
+select A.class from
+(select c.class, name from classes c, ships s
+     where s.class=c.class
+     union
+     select c.class, ship from classes c, outcomes o
+     where o.ship=c.class 
+     and o.ship not in(select distinct name from ships)) A
+group by A.class 
+having count(0)=1
