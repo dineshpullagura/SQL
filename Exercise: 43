@@ -1,0 +1,2 @@
+select name from battles where year(date) not in (
+(Select launched from ships where launched is not null))
