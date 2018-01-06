@@ -1,0 +1,7 @@
+select distinct maker from laptop a, product b
+ where speed>=750 
+and a.model=b.model
+intersect
+select distinct maker from pc a,product b
+where speed>=750
+and a.model=b.model
