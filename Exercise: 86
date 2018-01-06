@@ -1,0 +1,8 @@
+Select maker,
+stuff(( select '/' + P1.type from (select distinct maker,type from Product) P1 
+where P1.maker=P.maker 
+order by P1.type
+for xml path('')),1,1,'') as types
+from 
+(select distinct maker,type from Product) P
+group by maker
