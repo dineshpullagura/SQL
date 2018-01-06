@@ -1,0 +1,3 @@
+Select avg(speed) from pc a,product b
+where a.model=b.model
+and b.maker='A'
