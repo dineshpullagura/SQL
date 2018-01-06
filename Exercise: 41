@@ -1,0 +1,25 @@
+SELECT 'cd' as chr, cd as value 
+FROM pc 
+WHERE code = (SELECT max(code) FROM pc)
+UNION
+SELECT  'model' as chr, cast(model as varchar)as value 
+FROM pc 
+WHERE code = (SELECT max(code) FROM pc)
+UNION
+SELECT  'speed' as chr,cast(speed as varchar)  as value 
+FROM pc 
+WHERE code = (SELECT max(code) FROM pc)
+UNION
+SELECT  'ram' as chr, cast(ram as varchar) as value 
+FROM pc 
+WHERE code = (SELECT max(code) FROM pc)
+UNION
+SELECT  'hd' as chr, cast(hd as varchar)  as value 
+FROM pc 
+WHERE code = (SELECT max(code) FROM pc)
+
+UNION
+
+SELECT  'price' as chr,cast(price as varchar)  as value 
+FROM pc 
+WHERE code = (SELECT max(code) FROM pc)
